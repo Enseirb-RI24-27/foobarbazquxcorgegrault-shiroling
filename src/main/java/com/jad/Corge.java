@@ -5,7 +5,6 @@ public class Corge {
 
     public Corge(Foo foo) {
         this.foo = foo;
-        foo.setCorge(this);
     }
 
     public Foo getFoo() {
@@ -13,7 +12,6 @@ public class Corge {
     }
 
     public void setFoo(Foo foo) {
-        if(this.foo != null && foo != null) this.foo.setCorge(null);
         this.foo = foo;
     }
 }

@@ -8,13 +8,12 @@ public class Foo {
     private List<Baz> bazs;
     private Qux qux;
     private Corge corge;
-    private List<Grault> graults;
+    private List<Grault> graults = new ArrayList<>();
 
     public Foo(Bar bar) {
         this.bar = bar;
         this.bazs = new ArrayList<>();
         this.qux = new Qux();
-        this.graults = new ArrayList<>();
     }
 
     public Corge getCorge() {
@@ -22,8 +21,15 @@ public class Foo {
     }
 
     public void setCorge(Corge corge) {
-        if (this.corge != null && corge != null) { this.corge.setFoo(null);}
+        if (this.corge != null) {
+            this.corge.setFoo(null);
+        }
         this.corge = corge;
+
+        if (corge != null && corge.getFoo() != this) {
+            corge.setFoo(this);
+        }
+
     }
 
     public void addBaz(Baz baz) {
@@ -49,8 +55,6 @@ public class Foo {
     public List<Grault> getGraults() {
         return this.graults;
     }
-
-
 }
 
 
