@@ -13,7 +13,7 @@ public class Corge {
     }
 
     public void setFoo(Foo foo) {
-        if(this.foo != null && this.foo.getCorge() != null) this.foo.setCorge(null);
+        if(this.foo != null && foo != null) this.foo.setCorge(null);
         this.foo = foo;
     }
 }
